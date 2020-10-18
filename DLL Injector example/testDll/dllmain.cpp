@@ -1,7 +1,10 @@
 ﻿#include "pch.h"
 
-#include <iostream>
 #include <Windows.h>
+
+void helloWorld() {
+	MessageBox(NULL, L"Hello!!! I was injected successfully 😄", L"Success!", NULL);
+}
 
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
@@ -11,7 +14,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
-		MessageBox(NULL, L"Hello, I was injected 😄", L"Success!", NULL);
+		helloWorld();
     case DLL_THREAD_ATTACH:
     case DLL_THREAD_DETACH:
     case DLL_PROCESS_DETACH:
